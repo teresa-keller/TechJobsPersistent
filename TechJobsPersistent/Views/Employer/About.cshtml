@@ -1,11 +1,7 @@
-﻿@model List<TechJobsPersistent.Models.Employer>
-<h1>Employer: Name</h1>
+﻿@model TechJobsPersistent.Models.Employer
 
-<div>
-    @foreach(Employer employer in Model)
-            {
-                <p>@employer.Name</p>
-                <p>@employer.Location</p>
-            }
 
-</div>
+<h1>Employer: @Model.Name</h1>
+<h2>Location: @Model.Location</h2>
+
+<a asp-controller="Employer" asp-action="Index">All Employers</a>
