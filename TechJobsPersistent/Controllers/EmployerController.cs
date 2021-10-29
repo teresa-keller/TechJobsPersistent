@@ -27,17 +27,26 @@ namespace TechJobsPersistent.Controllers
             return View(employers);
         }
 
-        public IActionResult Add(AddEmployerViewModel addEmployerViewModel)
+        public IActionResult Add()
         {
+            AddEmployerViewModel addEmployerViewModel = new AddEmployerViewModel();
+
             return View(addEmployerViewModel);
         }
-
-        public IActionResult ProcessAddEmployerForm()
+        [HttpPost("/Add")]
+        public IActionResult ProcessAddEmployerForm(AddEmployerViewModel addEmployerViewModel)
         {
-            return View();
-        }
+            Employer newEmployer = new Employer
+            {
+                Name = addEmployerViewModel.Name,
+                Location = addEmployerViewModel.Location
+            };
+            context.Add(newEmployer);
+            context.SaveChanges();
 
-        public IActionResult About(int id)
+            return Redirect("/Employer");
+        }
+            public IActionResult About(int id)
         {
             return View();
         }
