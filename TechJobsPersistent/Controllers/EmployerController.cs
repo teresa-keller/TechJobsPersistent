@@ -36,15 +36,20 @@ namespace TechJobsPersistent.Controllers
         [HttpPost("/Add")]
         public IActionResult ProcessAddEmployerForm(AddEmployerViewModel addEmployerViewModel)
         {
-            Employer newEmployer = new Employer
+            if (ModelState.IsValid)
             {
-                Name = addEmployerViewModel.Name,
-                Location = addEmployerViewModel.Location
-            };
-            context.Add(newEmployer);
-            context.SaveChanges();
+                Employer newEmployer = new Employer
+                {
+                    Name = addEmployerViewModel.Name,
+                    Location = addEmployerViewModel.Location
+                };
 
-            return Redirect("/Employer");
+                context.Add(newEmployer);
+                context.SaveChanges();
+
+                return Redirect("/Employer");
+            }
+            return View("Add");
         }
             public IActionResult About(int id)
         {
