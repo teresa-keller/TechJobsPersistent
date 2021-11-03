@@ -53,7 +53,19 @@ namespace TechJobsPersistent.Controllers
                 //Inside the loop, you will create a new JobSkill object with the newly-created Job object. You will also need to parse each item in selectedSkills as an integer to use for SkillId.
                 foreach (var skill in selectedSkills)
                 {
-                    
+                    Skill theSkill = new Skill
+                    {
+                        Name = skill,
+                    };
+
+                    JobSkill jobSkill = new JobSkill
+                    {
+                        Job = newJob,
+                        JobId = newJob.Id,
+                        Skill = theSkill,
+                        SkillId = theSkill.Id
+                    };
+                    context.Add(jobSkill);
                 }
                 context.Add(newJob);
                 context.SaveChanges();
