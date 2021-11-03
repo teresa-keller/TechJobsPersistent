@@ -23,7 +23,7 @@ namespace TechJobsPersistent.Controllers
         public IActionResult Index()
         {
             List<Employer> employers = context.Employers.ToList();
-
+            context.SaveChanges();
             return View(employers);
         }
 

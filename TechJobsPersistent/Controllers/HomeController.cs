@@ -33,12 +33,12 @@ namespace TechJobsPersistent.Controllers
         [HttpGet("/Add")]
         public IActionResult AddJob()
         {
-            AddJobViewModel addJobViewModel = new AddJobViewModel();
+            AddJobViewModel addJobViewModel = new AddJobViewModel(context.Employers.ToList(), context.Skills.ToList());
             
-            return View();
+            return View(addJobViewModel);
         }
 
-        public IActionResult ProcessAddJobForm(AddJobViewModel addJobViewModel)
+        public IActionResult ProcessAddJobForm(AddJobViewModel addJobViewModel, string[] selectedSkills)
         {
             if (ModelState.IsValid)
             {
@@ -49,7 +49,12 @@ namespace TechJobsPersistent.Controllers
                     EmployerId = addJobViewModel.EmployerId,
                     Employer = employer
                 };
-
+                //After you add a new parameter, you want to set up a loop to go through each item in selectedSkills. This loop should go right after you create a new Job object and before you add that Job object to the database.
+                //Inside the loop, you will create a new JobSkill object with the newly-created Job object. You will also need to parse each item in selectedSkills as an integer to use for SkillId.
+                foreach (var skill in selectedSkills)
+                {
+                    
+                }
                 context.Add(newJob);
                 context.SaveChanges();
 
