@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TechJobsPersistent.Data;
 
-namespace TechJobsPersistent.Migrations
+namespace TechJobsPersistent.Migrations.JobDb
 {
     [DbContext(typeof(JobDbContext))]
     partial class JobDbContextModelSnapshot : ModelSnapshot

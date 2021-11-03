@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TechJobsPersistent.Migrations.EmployerDb
+namespace TechJobsPersistent.Migrations
 {
     public partial class EmployerMigration : Migration
     {

@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TechJobsPersistent.Data;
 
-namespace TechJobsPersistent.Migrations
+namespace TechJobsPersistent.Migrations.JobDb
 {
     [DbContext(typeof(JobDbContext))]
-    [Migration("20211029222217_InitialMigration")]
+    [Migration("20211103194812_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
