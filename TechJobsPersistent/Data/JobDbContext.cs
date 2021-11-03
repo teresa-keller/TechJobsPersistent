@@ -18,8 +18,8 @@ namespace TechJobsPersistent.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<JobSkill>()
-               // .HasKey(j => new { j.JobId, j.SkillId });
-               .HasNoKey();
+               .HasKey(j => new { j.JobId, j.SkillId });
+               
         }
     }
 }
