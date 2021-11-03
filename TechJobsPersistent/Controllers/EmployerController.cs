@@ -16,9 +16,9 @@ namespace TechJobsPersistent.Controllers
         // GET: /<controller>/
         private EmployerDbContext context;
 
-        public EmployerController(EmployerDbContext dbContext)
+        public EmployerController(EmployerDbContext employerDbContext)
         {
-            context = dbContext;
+            context = employerDbContext;
         }
         public IActionResult Index()
         {
@@ -31,7 +31,7 @@ namespace TechJobsPersistent.Controllers
         {
             AddEmployerViewModel addEmployerViewModel = new AddEmployerViewModel();
 
-            return View();
+            return View(addEmployerViewModel);
         }
         [HttpPost("/Add")]
         public IActionResult ProcessAddEmployerForm(AddEmployerViewModel addEmployerViewModel)

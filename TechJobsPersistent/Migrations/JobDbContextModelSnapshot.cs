@@ -102,7 +102,7 @@ namespace TechJobsPersistent.Migrations
                         .IsRequired();
 
                     b.HasOne("TechJobsPersistent.Models.Skill", "Skill")
-                        .WithMany()
+                        .WithMany("JobSkills")
                         .HasForeignKey("SkillId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
